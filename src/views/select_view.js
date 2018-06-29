@@ -24,7 +24,8 @@ SelectView.prototype.getTitle = function () {
 SelectView.prototype.populate = function (ghibliTitles) {
   for (const ghibliTitle of ghibliTitles) {
     this.element.appendChild(createElement('option', ghibliTitle));
-  }
+  };
 };
+
 
 module.exports = SelectView;

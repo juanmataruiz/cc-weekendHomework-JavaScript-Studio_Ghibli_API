@@ -4,6 +4,7 @@ const RequestHelper = require('../helpers/request_helper.js');
 
 const StudioGhibli = function () {
   this.films = null;
+  this.location = null;
 }
 
 StudioGhibli.prototype.bindEvents = function () {
@@ -31,6 +32,6 @@ StudioGhibli.prototype.getData = function () {
     });
     PubSub.publish('StudioGhibli:film-name', ghibliTitles);
   });
-
 };
+
 module.exports = StudioGhibli;
