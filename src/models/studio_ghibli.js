@@ -3,7 +3,7 @@ const RequestHelper = require('../helpers/request_helper.js');
 
 
 const StudioGhibli = function () {
-  this.ghibli = null;
+  this.films = null;
 }
 
 StudioGhibli.prototype.bindEvents = function () {
@@ -13,7 +13,7 @@ StudioGhibli.prototype.bindEvents = function () {
 
   PubSub.subscribe('SelectView:get-ghibli-details', (event) => {
     const ghibliTitle = event.detail;
-    const foundGhibliDetail = this.ghibli.find((film) => {
+    const foundGhibliDetail = this.films.find((film) => {
       return film.title === ghibliTitle;
     });
     PubSub.publish('StudioGhibli:ghibli-details', foundGhibliDetail)
