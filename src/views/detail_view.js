@@ -9,22 +9,26 @@ const DetailView = function (container) {
 DetailView.prototype.bindEvents = function () {
   PubSub.subscribe('StudioGhibli:ghibli-details', (event) => {
     const ghibliDetails = event.detail;
+    this.container.innerHTML = "";
     this.populate(ghibliDetails);
-    console.log(ghibliDetails);
   })
 };
 
 DetailView.prototype.populate = function (ghibliDetails) {
   this.container.appendChild(createElement('h2', ghibliDetails.title))
 
-  const ul = document.createElement('ul')
-  ul.appendChild(createElement('li', ghibliDetails.description))
-  ul.appendChild(createElement('li', ghibliDetails.director))
-  ul.appendChild(createElement('li', ghibliDetails.producer))
-  ul.appendChild(createElement('li', ghibliDetails.release_date))
-  ul.appendChild(createElement('li', ghibliDetails.rt_score))
+  this.container.appendChild(createElement('h4', 'Description'))
+  this.container.appendChild(createElement('p', ghibliDetails.description))
 
-    this.container.appendChild(ul)
+  this.container.appendChild(createElement('h4', 'Director'))
+  this.container.appendChild(createElement('p', ghibliDetails.director))
+
+  this.container.appendChild(createElement('h4', 'Producer'))
+  this.container.appendChild(createElement('p', ghibliDetails.producer))
+
+  this.container.appendChild(createElement('h4', 'Release Date'))
+  this.container.appendChild(createElement('p', ghibliDetails.release_date))
+
 };
 
 module.exports = DetailView;
