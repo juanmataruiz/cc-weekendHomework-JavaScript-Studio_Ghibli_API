@@ -11,15 +11,7 @@ DetailView.prototype.bindEvents = function () {
     const ghibliDetails = event.detail;
     this.container.innerHTML = "";
     this.populate(ghibliDetails);
-
-    //access people api
-
-    // const people = ghibliDetails.people[0];
-    // this.personName = fetch(people)
-    //                 .then(res=> res.json().then( data => data.name))
-    // console.log(personName);
-
-  })
+  });
 };
 
 DetailView.prototype.populate = function (ghibliDetails) {
